@@ -1,10 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class HorizontalCard extends StatefulWidget {
   var title;
   var img;
   var reating;
-  HorizontalCard({Key? key, required this.title, required this.img,required this.reating})
+  HorizontalCard(
+      {Key? key, required this.title, required this.img, required this.reating})
       : super(key: key);
 
   @override
@@ -29,16 +32,6 @@ class _HorizontalCardState extends State<HorizontalCard> {
               fit: BoxFit.cover,
             ),
           ),
-          // child: Positioned(
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(20.0),
-          //     child: Text(
-          //       widget.title,
-          //       textAlign: TextAlign.center,
-          //       style: TextStyle(fontSize: 17, color: Colors.white),
-          //     ),
-          //   ),
-          // ),
         ),
         Positioned(
           child: Padding(
@@ -46,8 +39,8 @@ class _HorizontalCardState extends State<HorizontalCard> {
             child: Container(
               width: size.width / 2.5,
               height: 300,
-              decoration: const BoxDecoration(
-                  color: Colors.transparent,
+              decoration: const  BoxDecoration(
+                  color: Colors.black54,
                   borderRadius: BorderRadius.all(Radius.circular(10))),
             ),
           ),
@@ -58,15 +51,15 @@ class _HorizontalCardState extends State<HorizontalCard> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                width: size.width / 2.5,
+                width: size.width / 2.8,
                 height: 300,
                 child: Text(
                   widget.title,
                   style: const TextStyle(
                       color: Colors.white,
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700),
+                      overflow: TextOverflow.fade,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w900),
                 ),
               ),
             ),
@@ -83,9 +76,10 @@ class _HorizontalCardState extends State<HorizontalCard> {
                 Icons.star,
                 color: Colors.yellow[800],
               ),
-              Text(widget.reating.toString(),style: const TextStyle(
-                color: Colors.white
-              ),),
+              Text(
+                widget.reating.toString(),
+                style: const TextStyle(color: Colors.white),
+              ),
             ],
           ),
         )

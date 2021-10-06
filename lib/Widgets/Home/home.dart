@@ -1,4 +1,5 @@
 import 'package:app/Widgets/HorizontalCard/horizontal_card.dart';
+import 'package:app/Widgets/Info/info.dart';
 import 'package:app/Widgets/RecipeCard/recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:app/Widgets/Home/models/recipe.dart';
@@ -76,13 +77,14 @@ class _HomeState extends State<Home> {
                 children: [
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 300),
-                    opacity: _scrollPosition > 20 ? 0 : 1 ,
+                    opacity: _scrollPosition > 20 ? 0 : 1,
                     child: Container(
-                      margin:const  EdgeInsets.only(top:35,left: 20),
-                      child:const Text("Today's recipe",style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w700
-                      ),),
+                      margin: const EdgeInsets.only(top: 35, left: 20),
+                      child: const Text(
+                        "Today's recipe",
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                   SingleChildScrollView(
@@ -99,10 +101,28 @@ class _HomeState extends State<Home> {
                               physics: const BouncingScrollPhysics(),
                               itemCount: 20,
                               itemBuilder: (context, index) {
-                                return HorizontalCard(
-                                  reating: _recipes[index].servings,
-                                  img: _recipes[index].image,
-                                  title: _recipes[index].title,
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Info(
+                                                title: _recipes[index]
+                                                    .title
+                                                    .toString(),
+                                                id: "1.0",
+                                                img: _recipes[index]
+                                                    .image
+                                                    .toString(),
+                                                level: _recipes[index].servings,
+                                                time: _recipes[index]
+                                                    .totalTime)));
+                                  },
+                                  child: HorizontalCard(
+                                    reating: _recipes[index].servings,
+                                    img: _recipes[index].image,
+                                    title: _recipes[index].title,
+                                  ),
                                 );
                               }),
                         ),
@@ -113,21 +133,41 @@ class _HomeState extends State<Home> {
                     duration: const Duration(milliseconds: 600),
                     margin:
                         EdgeInsets.only(top: _scrollPosition > 20 ? 0 : 455),
-                    child: ListView.builder(
-                        controller: _scrollController,
-                        scrollDirection: Axis.vertical,
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: _recipes.length,
-                        itemBuilder: (context, index) {
-                          return RecipeCard(
-                            key: Key(index.toString()),
-                            title: _recipes[index].title,
-                            // title: _scrollPosition.toString(),
-                            level: _recipes[index].servings,
-                            time: _recipes[index].totalTime,
-                            img: _recipes[index].image,
-                          );
-                        }),
+                    child: Stack(
+                      children: [
+                        AnimatedOpacity(
+                          duration: const Duration(milliseconds: 150),
+                          opacity: _scrollPosition > 20 ? 0.0 :1.0,
+                          child: const Padding(
+                            padding: EdgeInsets.only(left:20.0),
+                            child: Text("Recommended",style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w900,
+                            ),),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:20.0),
+                          child: Container(
+                            child: ListView.builder(
+                                controller: _scrollController,
+                                scrollDirection: Axis.vertical,
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: _recipes.length,
+                                itemBuilder: (context, index) {
+                                  return RecipeCard(
+                                    key: Key(index.toString()),
+                                    title: _recipes[index].title,
+                                    // title: _scrollPosition.toString(),
+                                    level: _recipes[index].servings,
+                                    time: _recipes[index].totalTime,
+                                    img: _recipes[index].image,
+                                  );
+                                }),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ));

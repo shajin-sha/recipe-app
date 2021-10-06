@@ -1,16 +1,33 @@
-# app
+# Recipe app
 
-A new Flutter recipe app project.
+A  Flutter recipe app project that connect with food database.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img width='200' src="https://i.ibb.co/v16X7D6/Screenshot-1633536303-google-pixel4-justblack-portrait.png" />
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+<img width='135' src="https://i.ibb.co/ggQPPWk/Screenshot-1633536588-google-pixel4-justblack-portrait.png" />
+
+
+
+## Functions
+ - search
+ - list of recipes
+
+
+## Other
+ - expensive ui
+ - animations
+
+## Tool used 
+- http 
+- flutter in build animations widgets
+
+
+## Dev info 
+<span>Email: </span><a href="mailto:shajin.sha10@gmail.com">shajin.sha10@gamil.com</a>
+
+<span>Name: </span><a href="#">shajin</a>
