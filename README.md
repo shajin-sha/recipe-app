@@ -9,7 +9,7 @@ A  Flutter recipe app project that connect with food database.
 
 
 
-<img width='135' src="https://i.ibb.co/ggQPPWk/Screenshot-1633536588-google-pixel4-justblack-portrait.png" />
+<img width='200' src="https://i.ibb.co/ggQPPWk/Screenshot-1633536588-google-pixel4-justblack-portrait.png" />
 
 
 
